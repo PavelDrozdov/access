@@ -2,23 +2,11 @@ import {Component} from '../decorators/card';
 
 @Component(
     '#app',
-    `Is: {{fav}} is: {{cake}}`,
-    {fav: "Squirrelly", cake: "Chocolate"}
+    `Is: {{fav}} is: {{cake}}`
 )
-class navPanel {
-    constructor() {
-        this.selector = '#app';
+export default class navPanel {
+    data () {
+        return {
+            fav: "Squsadirrelly", cake: "Chocolate"}
     }
-    // render() {
-    //     document.querySelector(this.selector).innerHTML = 
-    //         renderAQRL(`
-    //             This is a template
-    //             My favorite template engine is: {{fav}}
-    //             My favorite kind of cake is: {{cake}}
-    //             `, {
-    //                 fav: "Squirrelly", cake: "Chocolate"
-    //         })
-    // }
 }
-
-export {navPanel};

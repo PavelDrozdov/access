@@ -1,10 +1,11 @@
 import {Render} from 'squirrelly';
 
-function Component(selector, teamplate, data)  {
+function Component(selector, teamplate)  {
     return function(target) {
-        target.render = () => {
+        target.selector = selector;
+        target.render = function() {
             document.querySelector(selector).innerHTML = 
-                Render(teamplate, data)
+                Render(teamplate, target.prototype.data())
         };
     };
 }
