@@ -7,6 +7,11 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src/'),
+    }
+  },
   module: {
     rules: [
       { 
@@ -21,10 +26,18 @@ module.exports = {
     ],
   },
   plugins: [new HtmlWebpackPlugin({
-    template: 'src/index.html'
+    template: './src/index.html'
   })],
   devServer: {
+    historyApiFallback: true,
     contentBase: path.join(__dirname, 'dist'),
-    port: 9000
+    host: 'localhost',
+    port: 9000,
+    https: false,
+    disableHostCheck: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    },
+    useLocalIp: false,
   }
 };

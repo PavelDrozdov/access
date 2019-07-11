@@ -1,13 +1,23 @@
 import {Render} from 'squirrelly';
 
-function Component(selector, teamplate)  {
+function Component(selector, template)  {
     return function(target) {
         target.selector = selector;
         target.render = function() {
             document.querySelector(selector).innerHTML = 
-                Render(teamplate, target.prototype.data())
+                Render(template, target.prototype.data())
         };
     };
 }
 
-export {Component};
+function ComponentWithSourceCode(selector, teamplate)  {
+    target.selector = selector;
+    target.render = function() {
+        document.querySelector(selector).innerHTML = 
+            Render(teamplate, target.prototype.data())
+        
+        document.querySelector(`${selector}-teamplate`).innerHTML = teamplate;
+    };
+}
+
+export {Component, ComponentWithSourceCode};
