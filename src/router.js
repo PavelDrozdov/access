@@ -53,7 +53,6 @@ const Router = {
         for(var i=0; i<this.routes.length; i++) {
             if(fragment === this.clearSlashes(this.routes[i].re)) {
                 isCall = true;
-                console.log(fragment)
                 this.routes[i].handler();
                 return this;
             }           
