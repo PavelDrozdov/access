@@ -3,18 +3,19 @@ import {definePartial} from 'squirrelly';
 
 import Header from './header';
 import NavPanel from './nav-panel';
+import Footer  from './footer';
 
 @Component(
   `
-    {{include("Header")/}}
-    <div class="main-area">
-      {{include("NavPanel")/}}
-      <section class="main-content">
+    <div id="layout">
+      <div id="main">
+        {{include("NavPanel")/}}
         {{if(options.isHasRouterInjection)}}
           {{include("router")/}}
         {{#else}}
         {{/if}}
-      </section>  
+      </div>
+      {{include("Footer")/}}
     </div>
   `
 )
@@ -22,6 +23,8 @@ export default class App {
   components (routerInjection) {
     definePartial("Header", Header.render());
     definePartial("NavPanel", NavPanel.render());
+    definePartial("Footer", Footer.render());
+
     if(routerInjection) {
       this.isHasRouterInjection = true;
       definePartial("router", routerInjection.render());

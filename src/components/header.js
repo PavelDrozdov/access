@@ -2,9 +2,10 @@ import {Component} from '@/decorators/card';
 
 @Component(
   `
-    <header>
-      <h1>Демка для доклада "Доступно про доступность"</h1>
-    </header>
+    <div class="header">
+      <h1>Page Title</h1>
+      <h2>A subtitle for your page goes here</h2>
+    </div>
   `
 )
 export default class Header {

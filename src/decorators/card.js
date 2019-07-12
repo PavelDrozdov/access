@@ -7,7 +7,7 @@ function Component(template)  {
         target.prototype.components(routerInjection);
       }
       if(target.prototype.hasOwnProperty('onInit')) {
-        target.prototype.onInit();
+        setTimeout(() => target.prototype.onInit(),50);
       }
       return Render(
         template, 
@@ -20,15 +20,5 @@ function Component(template)  {
     };
   };
 }
-
-// function ComponentWithSourceCode(selector, teamplate)  {
-//     target.selector = selector;
-//     target.render = function() {
-//         document.querySelector(selector).innerHTML = 
-//             Render(teamplate, target.prototype.data())
-        
-//         document.querySelector(`${selector}-teamplate`).innerHTML = teamplate;
-//     };
-// }
 
 export {Component};

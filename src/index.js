@@ -1,3 +1,4 @@
+import './css/pure.css';
 import './css/main.css';
 import {Router} from '@/router';
 import {routs} from '@/constans';
